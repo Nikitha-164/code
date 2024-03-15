@@ -1,0 +1,20 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        s=[]
+        d=headNew=ListNode(None,head)
+        c=head
+        while c:
+            while s and s[-1].val<c.val:
+                s.pop()
+            s.append(c)
+            c=c.next
+        for node in s:
+            headNew.next=node
+            headNew=headNew.next
+        return d.next
+        
