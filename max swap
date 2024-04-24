@@ -1,0 +1,10 @@
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        nums=[int(i) for i in str(num)]
+        a={val:i for i,val in enumerate(nums)}
+        for i in range(len(nums)):
+            for d in range(9,nums[i],-1):
+                if d in a and a[d]>i:
+                    nums[i],nums[a[d]]=nums[a[d]],nums[i]
+                    return int("".join(map(str,nums)))
+        return num
